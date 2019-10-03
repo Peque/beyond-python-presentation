@@ -15,7 +15,8 @@
 
 ## Taller
 
-> **Objetivo**: preparación para contribuir a proyectos libres del ecosistema de Python y compartir los nuestros
+> **Objetivo**: aprender\
+> (a contribuir y compartir)
 
 - Repaso de herramientas/servicios
 - Poca profundización
@@ -70,15 +71,10 @@
 
 ## TDD :white_check_mark:
 
-. . .
-
 #. Escribimos el test
 #. Escribimos el código
-#. "Limpiamos"
 
 ## Desarrollo en `master`
-
-. . .
 
 Flujos:
 
@@ -111,7 +107,7 @@ Flujos:
 ## Integración continua
 
 - Pequeños cambios
-- Infraestructura (validación, estilo...)
+- Infraestructura
 
 ## *Fork*
 
@@ -185,6 +181,10 @@ git remote add upstream https://github.com/other_user/other.git
 git remote -v
 ```
 
+## Objetivo :dart:
+
+![](static/push-origin.png){width=80%}
+
 ## Comandos de Git
 
 ```bash
@@ -200,10 +200,6 @@ git checkout <name>
 ```bash
 git push <remote> <name>
 ```
-
-## Objetivo :dart:
-
-![](static/push-origin.png){width=80%}
 
 ## *Pull request*!
 
@@ -331,8 +327,8 @@ def get_ip():
   - Algo más de información
 - **`-x`**
   - Parar tras primer fallo
-- **`-k token`**
-  - Filtrar por "token"
+- **`-k nombre`**
+  - Filtrar por "nombre"
 - **`--pdb`**
   - entrar en consola de depuración! :smile:
 
@@ -785,4 +781,4 @@ twine upload dist/*
 
 ![](static/hacktoberfest.png)
 
-## Thank you! :tada: :heart:
+## ¡Gracias! :tada: :heart:
