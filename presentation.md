@@ -58,7 +58,7 @@
 ## La nuestra
 
 - TDD
-- Desarrollo en `master`
+- Integración en `master`
 - Todo código es revisado
 - Integración continua
 - Trabajo con *forks*
@@ -74,7 +74,7 @@
 #. Escribimos el test
 #. Escribimos el código
 
-## Desarrollo en `master`
+## Integración en `master`
 
 Flujos:
 
@@ -112,6 +112,7 @@ Flujos:
 ## *Fork*
 
 - Grupo/organización vs. usuario
+- *upstream* vs. *origin*
 - Limpieza
 - Seguridad
 - Permisos
@@ -330,7 +331,7 @@ def get_ip():
 - **`-k nombre`**
   - Filtrar por "nombre"
 - **`--pdb`**
-  - entrar en consola de depuración! :smile:
+  - ¡Entrar en consola de depuración! :smile:
 
 ## `requirements.txt`
 
@@ -406,7 +407,7 @@ pep8-naming
 Uso:
 
 ```bash
-flake8
+flake8 --exclude .venv
 ```
 
 ## [Black](https://github.com/psf/black)
@@ -624,6 +625,22 @@ pages:
 ## [Read the Docs](https://readthedocs.io)
 
 ![](static/readthedocs-import.png)
+
+## `.readthedocs.yml`
+
+```yaml
+version: 2
+sphinx:
+  configuration: docs/source/conf.py
+python:
+  version: 3.7
+  install:
+    - requirements: requirements.txt
+```
+
+## *Pull request*! :tada:
+
+- `.readthedocs.yml`
 
 
 # ¿*CI* en local?
