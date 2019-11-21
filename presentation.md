@@ -35,10 +35,8 @@
 
 ## Requisitos :computer:
 
-- Ordenador portátil con navegador y conexión a internet
-- Python 3.6 o superior
-- Git 2.0 o superior
-- Visualizador de repositorios (preferiblemente gitk)
+- Portátil, navegador, internet
+- Python 3.6+, Git 2.0+, gitk
 - Perfil de GitHub
 - Claves SSH configuradas
 - Python básico (funciones, paquetes)
