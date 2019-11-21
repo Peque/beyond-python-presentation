@@ -162,7 +162,7 @@ git status
 
 # Edit README.md
 git add README.md
-git commit
+git commit -m "Update README file"
 git push origin master
 ```
 
@@ -198,13 +198,13 @@ gitk --all &
 ```
 
 ```bash
-git fetch <remote>
-git branch <name>
-git checkout <name>
+git fetch upstream master
+git branch new_branch
+git checkout new_branch
 ```
 
 ```bash
-git push <remote> <name>
+git push origin new_branch
 ```
 
 ## *Pull request*!
@@ -234,15 +234,15 @@ gitk --all &
 ```
 
 ```bash
-git fetch upstream
+git fetch upstream master
 git checkout master
 git merge upstream/master
 git push origin master
 ```
 
 ```bash
-git branch -d <name>
-git push origin :name
+git branch -d new_branch
+git push origin :new_branch
 ```
 
 ## ¿Merge commit?
@@ -327,6 +327,20 @@ def get_ip():
     return requests.get("https://icanhazip.com")
 ```
 
+## `requirements.txt`
+
+```txt
+requests
+
+# Development
+pdbpp
+pytest
+```
+
+```
+(.venv) [other]$ pip install -r requirements.txt
+```
+
 ## Opciones
 
 - **`-v`**
@@ -338,25 +352,15 @@ def get_ip():
 - **`--pdb`**
   - ¡Entrar en consola de depuración! :smile:
 
-## `requirements.txt`
-
-```txt
-requests
-
-# Development
-pdbpp
-pytest
-```
-
-## Demostración :eyes:
-
-`code/pytest-pdb/`
-
 ## *Pull request*! :tada:
 
 - Tests
 - Módulo
 - Requisitos
+
+## Demostración :eyes:
+
+`code/pytest-pdb/`
 
 
 # Integración continua :rocket:
@@ -604,6 +608,8 @@ make html
 # Documentación en linea :earth_africa:
 
 ## *Gitlab Pages* :+1:
+
+`gitlab-ci.yml`
 
 ```yaml
 pages:
