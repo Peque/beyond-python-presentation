@@ -14,8 +14,14 @@ y compartir nuestro propio trabajo ası́ como contribuir a muchos de los
 proyectos libres que conforman el ecosistema de paquetes de Python.
 
 
-Setup
-=====
+Presentación
+============
+
+La presentación está disponible en GitHub Pages:
+
+https://peque.github.io/beyond-python-presentation/
+
+Para trabajar con ella en local:
 
 .. code:: bash
 
