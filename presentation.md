@@ -1,6 +1,5 @@
 % Ya sé Python. ¿Ahora qué? :relaxed:
 % Miguel Sánchez de León Peque
-% 2019-10-04
 
 
 # Presentación
@@ -793,9 +792,5 @@ twine upload dist/*
 
 
 # ¡Eso es todo! :tada: :beers: :smile:
-
-## [Hacktoberfest](https://hacktoberfest.digitalocean.com/)
-
-![](static/hacktoberfest.png)
 
 ## ¡Gracias! :tada: :heart:
