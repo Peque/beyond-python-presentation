@@ -299,7 +299,7 @@ pytest==5.2.0
 ## `test_mymodule.py`
 
 ```python
-from my_module import get_ip
+from mymodule import get_ip
 
 
 def test_get_ip_type():
