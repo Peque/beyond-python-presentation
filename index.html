@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Miguel Sánchez de León Peque">
+  <title>Ya sé Python. ¿Ahora qué? ☺️</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="revealjs/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="revealjs/css/theme/white.css" id="theme">
+<link rel="stylesheet" href="markdownrevealstyle/custom.css">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'revealjs/css/print/pdf.css' : 'revealjs/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="revealjs/lib/js/html5shiv.js"></script>
+  <![endif]-->
+
+<script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"
+  crossorigin="anonymous"></script>
+<script>
+  function addEvent(element, eventName, fn) {
+    if (element.addEventListener)
+      element.addEventListener(eventName, fn, false);
+    else if (element.attachEvent)
+      element.attachEvent('on' + eventName, fn);
+  }
+
+  addEvent(window, 'load', function() {
+    twemoji.parse(document.body, {'folder': 'svg', 'ext': '.svg'});
+  });
+</script>
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section data-background="markdownrevealstyle/background.svg" id="title-slide">
+  <h1 class="title">Ya sé Python. ¿Ahora qué? <span class="emoji" data-emoji="relaxed">☺️</span></h1>
+  <p class="author">Miguel Sánchez de León Peque</p>
+</section>
+
+<section data-background="markdownrevealstyle/background.svg"><section id="presentación" class="title-slide slide level1"><h1>Presentación</h1></section><section id="hola" class="slide level2">
+<h2>¡Hola! <span class="emoji" data-emoji="wave">👋</span></h2>
+<ul>
+<li><a href="https://www.linkedin.com/in/peque">Miguel Sánchez de León Peque</a></li>
+<li><a href="http://www.opensistemas.com">OpenSistemas</a></li>
+<li>Analista/científico de datos</li>
+<li>Programación, datos y aprendizaje máquina</li>
+<li>Python <span class="emoji" data-emoji="heart">❤️</span></li>
+</ul>
+</section><section id="taller" class="slide level2">
+<h2>Taller</h2>
+<blockquote>
+<p><strong>Objetivo</strong>: aprender<br />
+(a contribuir y compartir)</p>
+</blockquote>
+<ul>
+<li>Repaso de herramientas/servicios</li>
+<li>Poca profundización</li>
+<li>Interactivo (a ver qué tal)</li>
+</ul>
+</section><section id="cubriremos" class="slide level2">
+<h2>Cubriremos <span class="emoji" data-emoji="book">📖</span></h2>
+<ul>
+<li>Metodologías de desarrollo</li>
+<li>Servicios de control de versiones</li>
+<li>Entornos virtuales (<code>venv</code>)</li>
+<li>Herramientas de testeo</li>
+<li>Sistemas de integración continua</li>
+<li>Herramientas y servicios de documentación</li>
+<li>Distribución de paquetes</li>
+<li>Otros gestores de entornos virtuales</li>
+<li>…</li>
+</ul>
+</section><section id="requisitos" class="slide level2">
+<h2>Requisitos <span class="emoji" data-emoji="computer">💻</span></h2>
+<ul>
+<li>Portátil, navegador, internet</li>
+<li>Python 3.6+, Git 2.0+, gitk</li>
+<li>Perfil de GitHub</li>
+<li>Claves SSH configuradas</li>
+<li>Python básico (funciones, paquetes)</li>
+<li>Git básico (add, commit, push, pull)</li>
+<li><em>Linux</em>?</li>
+</ul>
+</section><section id="encuesta-rápida" class="slide level2">
+<h2>Encuesta rápida</h2>
+<ul>
+<li>¿Quién ha hecho ya algún <em>pull request</em>?</li>
+<li>¿Quién ha utilizado <code>pytest</code> y Travis?</li>
+<li>¿Quién documenta sus proyectos?</li>
+</ul>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="metodologías-de-desarrollo" class="title-slide slide level1"><h1>Metodologías de desarrollo</h1></section><section id="hay-3-metodologías-de-desarrollo" class="slide level2">
+<h2>Hay 3 metodologías de desarrollo</h2>
+<div class="fragment">
+<p><img data-src="static/hahaha.gif" style="width:80.0%" /></p>
+</div>
+</section><section id="la-nuestra" class="slide level2">
+<h2>La nuestra</h2>
+<ul>
+<li>TDD</li>
+<li>Integración en <code>master</code></li>
+<li>Todo código es revisado</li>
+<li>Integración continua</li>
+<li>Trabajo con <em>forks</em></li>
+</ul>
+</section><section id="es-la-buena" class="slide level2">
+<h2>¿Es la buena? <span class="emoji" data-emoji="joy">😂</span></h2>
+<ul>
+<li>Muy utilizada</li>
+<li>La más común en proyectos libres</li>
+<li>Aplicable a cualquier proyecto</li>
+</ul>
+</section><section id="tdd" class="slide level2">
+<h2>TDD <span class="emoji" data-emoji="white_check_mark">✅</span></h2>
+<ol>
+<li>Escribimos el test</li>
+<li>Escribimos el código</li>
+</ol>
+</section><section id="integración-en-master" class="slide level2">
+<h2>Integración en <code>master</code></h2>
+<p>Flujos:</p>
+<ul>
+<li><del>Git <em>flow</em></del></li>
+<li>GitHub</li>
+<li>Gitlab</li>
+</ul>
+</section><section class="slide level2">
+
+<p><img data-src="static/gitflow.png" style="width:50.0%" /></p>
+</section><section id="github" class="slide level2">
+<h2>GitHub</h2>
+<p><img data-src="static/github_flow.png" /></p>
+</section><section id="gitlab" class="slide level2">
+<h2>Gitlab</h2>
+<p><img data-src="static/environment_branches.png" style="width:50.0%" /></p>
+</section><section class="slide level2">
+
+<p><img data-src="static/release_branches.png" style="width:50.0%" /></p>
+</section><section id="revisiones" class="slide level2">
+<h2>Revisiones <span class="emoji" data-emoji="+1">👍</span></h2>
+<ul>
+<li><em>Pull/merge requests</em></li>
+<li>Discusiones</li>
+<li>Comentarios sobre el código</li>
+</ul>
+</section><section id="integración-continua" class="slide level2">
+<h2>Integración continua</h2>
+<ul>
+<li>Pequeños cambios</li>
+<li>Infraestructura</li>
+</ul>
+</section><section id="fork" class="slide level2">
+<h2><em>Fork</em></h2>
+<ul>
+<li>Grupo/organización vs. usuario</li>
+<li><em>upstream</em> vs. <em>origin</em></li>
+<li>Limpieza</li>
+<li>Seguridad</li>
+<li>Permisos</li>
+</ul>
+</section><section id="compartir-repositorio" class="slide level2">
+<h2>Compartir repositorio</h2>
+<p><img data-src="static/fork.svg" /></p>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="servicios-de-control-de-versiones" class="title-slide slide level1"><h1>Servicios de control de versiones</h1></section><section id="qué-opciones-hay" class="slide level2">
+<h2>¿Qué opciones hay?</h2>
+<p><img data-src="static/git_services.png" /></p>
+</section><section id="hoy" class="slide level2">
+<h2>Hoy… <span class="emoji" data-emoji="tada">🎉</span></h2>
+<p><img data-src="static/github-logo.png" style="width:50.0%" /></p>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="primer-commit" class="title-slide slide level1"><h1>Primer <em>commit</em> <span class="emoji" data-emoji="baby">👶</span></h1></section><section id="nuevo-repositorio" class="slide level2">
+<h2>Nuevo repositorio</h2>
+<p><img data-src="static/github_new_repo.png" style="width:60.0%" /></p>
+</section><section id="commit-inicial" class="slide level2">
+<h2><em>Commit</em> inicial</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">git</span> clone git@github.com:my_user/project.git</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="bu">cd</span> project/</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">git</span> config --global user.name <span class="st">&quot;Pepito Grillo&quot;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="fu">git</span> config --global user.email <span class="st">&quot;pepito@grillo.com&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="fu">git</span> branch -a</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="fu">git</span> status</a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="co"># Edit README.md</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="fu">git</span> add README.md</a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="fu">git</span> commit -m <span class="st">&quot;Update README file&quot;</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="fu">git</span> push origin master</a></code></pre></div>
+</section><section id="claves-ssh" class="slide level2">
+<h2>Claves SSH <span class="emoji" data-emoji="lock">🔒</span></h2>
+<ul>
+<li><a href="https://help.github.com/en/articles/checking-for-existing-ssh-keys">¿Tenemos?</a></li>
+<li><a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">Creamos y añadimos</a></li>
+<li><a href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account">Subimos a GitHub</a></li>
+</ul>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="primer-pull-request" class="title-slide slide level1"><h1>Primer <em>pull request</em> <span class="emoji" data-emoji="muscle">💪</span></h1></section><section id="fork-1" class="slide level2">
+<h2><em>Fork</em>!</h2>
+<p><img data-src="static/fork-github.png" /></p>
+</section><section id="clonación" class="slide level2">
+<h2>Clonación <span class="emoji" data-emoji="sheep">🐑</span></h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="fu">git</span> clone git@github.com:my_user/other.git</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="bu">cd</span> other</a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="fu">git</span> remote add upstream https://github.com/other_user/other.git</a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="fu">git</span> remote -v</a></code></pre></div>
+</section><section id="objetivo" class="slide level2">
+<h2>Objetivo <span class="emoji" data-emoji="dart">🎯</span></h2>
+<p><img data-src="static/push-origin.png" style="width:80.0%" /></p>
+</section><section id="comandos-de-git" class="slide level2">
+<h2>Comandos de Git</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="ex">gitk</span> --all <span class="kw">&amp;</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="fu">git</span> fetch upstream master</a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="fu">git</span> branch new_branch</a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="fu">git</span> checkout new_branch</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="fu">git</span> push origin new_branch</a></code></pre></div>
+</section><section id="pull-request" class="slide level2">
+<h2><em>Pull request</em>!</h2>
+<p><img data-src="static/compare-and-pr.png" style="width:50.0%" /></p>
+</section><section id="detalles" class="slide level2">
+<h2>Detalles</h2>
+<p><img data-src="static/pr-add.png" style="width:80.0%" /></p>
+</section><section id="pr-abierto" class="slide level2">
+<h2><em>PR</em> abierto</h2>
+<p><img data-src="static/pr-overview.png" style="width:80.0%" /></p>
+</section><section id="revisión" class="slide level2">
+<h2>Revisión <span class="emoji" data-emoji="+1">👍</span></h2>
+<p><img data-src="static/pr-review-nice.png" style="width:75.0%" /></p>
+</section><section id="integración" class="slide level2">
+<h2>Integración</h2>
+<p><img data-src="static/pr-merge.png" style="width:75.0%" /></p>
+</section><section id="sincronización-y-limpieza" class="slide level2">
+<h2>Sincronización y limpieza</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="ex">gitk</span> --all <span class="kw">&amp;</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1"><span class="fu">git</span> fetch upstream master</a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="fu">git</span> checkout master</a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="fu">git</span> merge upstream/master</a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="fu">git</span> push origin master</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" title="1"><span class="fu">git</span> branch -d new_branch</a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="fu">git</span> push origin :new_branch</a></code></pre></div>
+</section><section id="merge-commit" class="slide level2">
+<h2>¿Merge commit?</h2>
+<div class="fragment">
+<p><img data-src="static/pr-merge-options.png" /></p>
+</div>
+</section><section id="rebase-o-no-rebase" class="slide level2">
+<h2><code>rebase</code> o no <code>rebase</code></h2>
+<blockquote>
+<p><em>Esa es la cuestión…</em></p>
+</blockquote>
+<p><img data-src="static/merge-options.png" /></p>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="entornos-virtuales" class="title-slide slide level1"><h1>Entornos virtuales <span class="emoji" data-emoji="alien">👽</span></h1></section><section id="venv" class="slide level2">
+<h2><a href="https://docs.python.org/3/library/venv.html#creating-virtual-environments"><code>venv</code></a></h2>
+<pre><code>[other]$ python --version
+Python 2.7.16</code></pre>
+<pre><code>[other]$ python3 -m venv .venv
+[other]$ source .venv/bin/activate
+(.venv) [other]$ python --version
+Python 3.6.9</code></pre>
+</section><section id="requirements.txt" class="slide level2">
+<h2><code>requirements.txt</code></h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode txt"><code class="sourceCode default"><a class="sourceLine" id="cb13-1" title="1">pytest</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode txt"><code class="sourceCode default"><a class="sourceLine" id="cb14-1" title="1">pytest==5.2.0</a></code></pre></div>
+<blockquote>
+<p><em>También con rangos y condiciones</em></p>
+</blockquote>
+</section><section id="instalación-de-dependencias" class="slide level2">
+<h2>Instalación de dependencias</h2>
+<pre><code>(.venv) [other]$ pip install -r requirements.txt
+(.venv) [other]$ pytest --version</code></pre>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="testeo" class="title-slide slide level1"><h1>Testeo <span class="emoji" data-emoji="mag">🔍</span></h1></section><section id="pytest" class="slide level2">
+<h2>¿<code>pytest</code>?</h2>
+</section><section id="test_mymodule.py" class="slide level2">
+<h2><code>test_mymodule.py</code></h2>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb16-1" title="1"><span class="im">from</span> mymodule <span class="im">import</span> get_ip</a>
+<a class="sourceLine" id="cb16-2" title="2"></a>
+<a class="sourceLine" id="cb16-3" title="3"></a>
+<a class="sourceLine" id="cb16-4" title="4"><span class="kw">def</span> test_get_ip_type():</a>
+<a class="sourceLine" id="cb16-5" title="5">    <span class="co">&quot;&quot;&quot;The IP is expected to be a string.&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb16-6" title="6">    ip <span class="op">=</span> get_ip()</a>
+<a class="sourceLine" id="cb16-7" title="7">    <span class="cf">assert</span> <span class="bu">isinstance</span>(ip, <span class="bu">str</span>)</a>
+<a class="sourceLine" id="cb16-8" title="8"></a>
+<a class="sourceLine" id="cb16-9" title="9"></a>
+<a class="sourceLine" id="cb16-10" title="10"><span class="kw">def</span> test_get_ip_dots():</a>
+<a class="sourceLine" id="cb16-11" title="11">    <span class="co">&quot;&quot;&quot;The IP(v4) is expected to have 4 dots.&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb16-12" title="12">    ip <span class="op">=</span> get_ip()</a>
+<a class="sourceLine" id="cb16-13" title="13">    <span class="cf">assert</span> ip.count(<span class="st">&#39;.&#39;</span>) <span class="op">==</span> <span class="dv">4</span></a></code></pre></div>
+</section><section id="mymodule.py" class="slide level2">
+<h2><code>mymodule.py</code></h2>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" title="1"><span class="im">import</span> requests</a>
+<a class="sourceLine" id="cb17-2" title="2"></a>
+<a class="sourceLine" id="cb17-3" title="3"></a>
+<a class="sourceLine" id="cb17-4" title="4"><span class="kw">def</span> get_ip():</a>
+<a class="sourceLine" id="cb17-5" title="5">    <span class="co">&quot;&quot;&quot;Get my current external IP.&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb17-6" title="6">    <span class="cf">return</span> requests.get(<span class="st">&quot;https://icanhazip.com&quot;</span>)</a></code></pre></div>
+</section><section id="requirements.txt-1" class="slide level2">
+<h2><code>requirements.txt</code></h2>
+<div class="sourceCode" id="cb18"><pre class="sourceCode txt"><code class="sourceCode default"><a class="sourceLine" id="cb18-1" title="1">requests</a>
+<a class="sourceLine" id="cb18-2" title="2"></a>
+<a class="sourceLine" id="cb18-3" title="3"># Development</a>
+<a class="sourceLine" id="cb18-4" title="4">pdbpp</a>
+<a class="sourceLine" id="cb18-5" title="5">pytest</a></code></pre></div>
+<pre><code>(.venv) [other]$ pip install -r requirements.txt</code></pre>
+</section><section id="opciones" class="slide level2">
+<h2>Opciones</h2>
+<ul>
+<li><strong><code>-v</code></strong>
+<ul>
+<li>Algo más de información</li>
+</ul></li>
+<li><strong><code>-x</code></strong>
+<ul>
+<li>Parar tras primer fallo</li>
+</ul></li>
+<li><strong><code>-k nombre</code></strong>
+<ul>
+<li>Filtrar por “nombre”</li>
+</ul></li>
+<li><strong><code>--pdb</code></strong>
+<ul>
+<li>¡Entrar en consola de depuración! <span class="emoji" data-emoji="smile">😄</span></li>
+</ul></li>
+</ul>
+</section><section id="pull-request-1" class="slide level2">
+<h2><em>Pull request</em>! <span class="emoji" data-emoji="tada">🎉</span></h2>
+<ul>
+<li>Tests</li>
+<li>Módulo</li>
+<li>Requisitos</li>
+</ul>
+</section><section id="demostración" class="slide level2">
+<h2>Demostración <span class="emoji" data-emoji="eyes">👀</span></h2>
+<p><code>code/pytest-pdb/</code></p>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="integración-continua-1" class="title-slide slide level1"><h1>Integración continua <span class="emoji" data-emoji="rocket">🚀</span></h1></section><section id="travis-ci" class="slide level2">
+<h2><a href="https://travis-ci.org/">Travis CI</a></h2>
+<p><img data-src="static/travis-logo.png" /></p>
+</section><section id="registro" class="slide level2">
+<h2>Registro</h2>
+<p><img data-src="static/travis-signup.png" /></p>
+</section><section id="activación" class="slide level2">
+<h2>Activación</h2>
+<p><img data-src="static/travis-activation.png" /></p>
+</section><section id="travis.yml" class="slide level2">
+<h2><code>.travis.yml</code></h2>
+<div class="sourceCode" id="cb20"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb20-1" title="1"><span class="fu">dist:</span><span class="at"> xenial</span></a>
+<a class="sourceLine" id="cb20-2" title="2"></a>
+<a class="sourceLine" id="cb20-3" title="3"><span class="fu">language:</span><span class="at"> python</span></a>
+<a class="sourceLine" id="cb20-4" title="4"></a>
+<a class="sourceLine" id="cb20-5" title="5"><span class="fu">python:</span></a>
+<a class="sourceLine" id="cb20-6" title="6">  <span class="kw">-</span> <span class="fl">3.6</span></a>
+<a class="sourceLine" id="cb20-7" title="7"></a>
+<a class="sourceLine" id="cb20-8" title="8"><span class="fu">install:</span></a>
+<a class="sourceLine" id="cb20-9" title="9">  <span class="kw">-</span> pip install -r requirements.txt</a>
+<a class="sourceLine" id="cb20-10" title="10"></a>
+<a class="sourceLine" id="cb20-11" title="11"><span class="fu">script:</span></a>
+<a class="sourceLine" id="cb20-12" title="12">  <span class="kw">-</span> pytest -v</a></code></pre></div>
+</section><section id="pull-request-2" class="slide level2">
+<h2><em>Pull request</em>! <span class="emoji" data-emoji="tada">🎉</span></h2>
+<ul>
+<li>Configuración de Travis</li>
+</ul>
+<p><img data-src="static/travis-pr-ok.png" /></p>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="flecos-y-estilo" class="title-slide slide level1"><h1>Flecos y estilo <span class="emoji" data-emoji="sunglasses">😎</span></h1></section><section id="flake8" class="slide level2">
+<h2><a href="https://github.com/pycqa/flake8"><code>flake8</code></a></h2>
+<p><code>requirements.txt</code></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode txt"><code class="sourceCode default"><a class="sourceLine" id="cb21-1" title="1">flake8</a>
+<a class="sourceLine" id="cb21-2" title="2">flake8-bugbear</a>
+<a class="sourceLine" id="cb21-3" title="3">pep8-naming</a></code></pre></div>
+<p>Uso:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb22-1" title="1"><span class="ex">flake8</span> --exclude .venv</a></code></pre></div>
+</section><section id="black" class="slide level2">
+<h2><a href="https://github.com/psf/black">Black</a></h2>
+<p><code>requirements.txt</code></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode txt"><code class="sourceCode default"><a class="sourceLine" id="cb23-1" title="1">black</a></code></pre></div>
+<p>Uso:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb24-1" title="1"><span class="ex">black</span> . -l 79 --diff --check</a>
+<a class="sourceLine" id="cb24-2" title="2"><span class="ex">black</span> . -l 79</a></code></pre></div>
+</section><section id="travis.yml-1" class="slide level2">
+<h2><code>.travis.yml</code></h2>
+<div class="sourceCode" id="cb25"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb25-1" title="1"><span class="fu">script:</span></a>
+<a class="sourceLine" id="cb25-2" title="2">  <span class="kw">-</span> pytest -v</a>
+<a class="sourceLine" id="cb25-3" title="3">  <span class="kw">-</span> flake8</a>
+<a class="sourceLine" id="cb25-4" title="4">  <span class="kw">-</span> black . -l 79 --diff --check</a></code></pre></div>
+</section><section id="pull-request-3" class="slide level2">
+<h2><em>Pull request</em>! <span class="emoji" data-emoji="tada">🎉</span></h2>
+<ul>
+<li>Requisitos</li>
+<li>Configuración de Travis</li>
+</ul>
+</section><section id="otros" class="slide level2">
+<h2>Otros</h2>
+<ul>
+<li><code>flake8-isort</code></li>
+<li><a href="http://www.mypy-lang.org/">Mypy</a></li>
+<li>Cobertura</li>
+<li>Seguridad</li>
+<li>Limpieza</li>
+</ul>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="documentación" class="title-slide slide level1"><h1>Documentación <span class="emoji" data-emoji="book">📖</span></h1></section><section id="sphinx" class="slide level2">
+<h2><a href="https://www.sphinx-doc.org">Sphinx</a></h2>
+<p><img data-src="static/sphinx-logo.png" /></p>
+</section><section id="sintaxis" class="slide level2">
+<h2>Sintaxis</h2>
+<div class="sourceCode" id="cb26"><pre class="sourceCode rst"><code class="sourceCode rest"><a class="sourceLine" id="cb26-1" title="1">Title</a>
+<a class="sourceLine" id="cb26-2" title="2">=====</a>
+<a class="sourceLine" id="cb26-3" title="3"></a>
+<a class="sourceLine" id="cb26-4" title="4">Paragraph with<span class="ot"> `a link &lt;https://domain.com&gt;`_</span>.</a>
+<a class="sourceLine" id="cb26-5" title="5"></a>
+<a class="sourceLine" id="cb26-6" title="6">- Unordered</a>
+<a class="sourceLine" id="cb26-7" title="7">- List</a>
+<a class="sourceLine" id="cb26-8" title="8"></a>
+<a class="sourceLine" id="cb26-9" title="9"><span class="dt">.. code-block:: python</span></a>
+<a class="sourceLine" id="cb26-10" title="10"></a>
+<a class="sourceLine" id="cb26-11" title="11"><span class="dt">   print(&quot;Hello world!&quot;)</span></a></code></pre></div>
+</section><section id="enlaces" class="slide level2">
+<h2>Enlaces <span class="emoji" data-emoji="link">🔗</span></h2>
+<div class="sourceCode" id="cb27"><pre class="sourceCode rst"><code class="sourceCode rest"><a class="sourceLine" id="cb27-1" title="1">Pargraph with<span class="ot"> `a link`_</span>.</a>
+<a class="sourceLine" id="cb27-2" title="2"></a>
+<a class="sourceLine" id="cb27-3" title="3"><span class="dt">.. _a link: </span>https://domain.com</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode rst"><code class="sourceCode rest"><a class="sourceLine" id="cb28-1" title="1"><span class="dt">.. _label:</span></a>
+<a class="sourceLine" id="cb28-2" title="2"></a>
+<a class="sourceLine" id="cb28-3" title="3">One section</a>
+<a class="sourceLine" id="cb28-4" title="4">-----------</a>
+<a class="sourceLine" id="cb28-5" title="5"></a>
+<a class="sourceLine" id="cb28-6" title="6">This is the text of the section.</a>
+<a class="sourceLine" id="cb28-7" title="7"></a>
+<a class="sourceLine" id="cb28-8" title="8"></a>
+<a class="sourceLine" id="cb28-9" title="9">Another section</a>
+<a class="sourceLine" id="cb28-10" title="10">---------------</a>
+<a class="sourceLine" id="cb28-11" title="11"></a>
+<a class="sourceLine" id="cb28-12" title="12">Refer to <span class="kw">:ref:</span><span class="dv">`label`</span>.</a></code></pre></div>
+</section><section id="otras-directivas" class="slide level2">
+<h2>Otras directivas <span class="emoji" data-emoji="heart_eyes">😍</span></h2>
+<div class="sourceCode" id="cb29"><pre class="sourceCode rst"><code class="sourceCode rest"><a class="sourceLine" id="cb29-1" title="1"><span class="dt">.. warning:: </span>This is a warning!</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode rst"><code class="sourceCode rest"><a class="sourceLine" id="cb30-1" title="1"><span class="dt">.. literalinclude:: </span>path/to/code.py</a>
+<a class="sourceLine" id="cb30-2" title="2">   <span class="fu">:lines:</span> 1,3,5-10</a>
+<a class="sourceLine" id="cb30-3" title="3">   <span class="fu">:emphasize-lines:</span> 12,15-18</a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode rst"><code class="sourceCode rest"><a class="sourceLine" id="cb31-1" title="1"><span class="dt">.. figure:: </span>myfigure.svg</a>
+<a class="sourceLine" id="cb31-2" title="2">   <span class="fu">:scale:</span> 50 %</a>
+<a class="sourceLine" id="cb31-3" title="3">   <span class="fu">:align:</span> left</a>
+<a class="sourceLine" id="cb31-4" title="4"></a>
+<a class="sourceLine" id="cb31-5" title="5">   Figure caption.</a></code></pre></div>
+</section><section id="aún-más" class="slide level2">
+<h2>Aún más</h2>
+<p><a href="https://matplotlib.org/sampledoc/extensions.html">Matplotlib <span class="emoji" data-emoji="heart">❤️</span> Sphinx</a></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode rst"><code class="sourceCode rest"><a class="sourceLine" id="cb32-1" title="1"><span class="dt">.. plot::</span></a>
+<a class="sourceLine" id="cb32-2" title="2"></a>
+<a class="sourceLine" id="cb32-3" title="3">   import matplotlib.pyplot as plt</a>
+<a class="sourceLine" id="cb32-4" title="4">   import numpy as np</a>
+<a class="sourceLine" id="cb32-5" title="5"></a>
+<a class="sourceLine" id="cb32-6" title="6">   x = np.random.randn(1000)</a>
+<a class="sourceLine" id="cb32-7" title="7">   plt.hist(x, 20)</a>
+<a class="sourceLine" id="cb32-8" title="8">   plt.title(&quot;Normal distribution&quot;)</a>
+<a class="sourceLine" id="cb32-9" title="9">   plt.show()</a></code></pre></div>
+</section><section id="y-mucho-más" class="slide level2">
+<h2>¡Y mucho más! <span class="emoji" data-emoji="heart_eyes">😍</span> <span class="emoji" data-emoji="heart_eyes">😍</span> <span class="emoji" data-emoji="heart_eyes">😍</span></h2>
+<div class="sourceCode" id="cb33"><pre class="sourceCode rst"><code class="sourceCode rest"><a class="sourceLine" id="cb33-1" title="1">Mounting</a>
+<a class="sourceLine" id="cb33-2" title="2">--------</a>
+<a class="sourceLine" id="cb33-3" title="3"></a>
+<a class="sourceLine" id="cb33-4" title="4">The mounting has been designed with<span class="ot"> `CadQuery`_</span>. See the</a>
+<a class="sourceLine" id="cb33-5" title="5"><span class="ot">`Bulebule 3D designs`_</span>.</a>
+<a class="sourceLine" id="cb33-6" title="6"></a>
+<a class="sourceLine" id="cb33-7" title="7"><span class="dt">.. cadquery:: </span>../../3d/mount.py</a>
+<a class="sourceLine" id="cb33-8" title="8">   <span class="fu">:select:</span> mount</a></code></pre></div>
+<ul>
+<li><a href="https://bulebule.readthedocs.io/en/latest/building.html#mounting">Visualization</a></li>
+</ul>
+</section><section id="integrar-sphinx" class="slide level2">
+<h2>Integrar Sphinx</h2>
+<p><code>requirements.txt</code></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode txt"><code class="sourceCode default"><a class="sourceLine" id="cb34-1" title="1">sphinx</a></code></pre></div>
+</section><section id="plantilla-de-documentación" class="slide level2">
+<h2>Plantilla de documentación</h2>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb35-1" title="1"><span class="fu">mkdir</span> docs/</a>
+<a class="sourceLine" id="cb35-2" title="2"><span class="bu">cd</span> docs</a>
+<a class="sourceLine" id="cb35-3" title="3"><span class="ex">sphinx-quickstart</span></a></code></pre></div>
+<pre><code>&gt; Separate source and build directories (y/n) [n]: y
+&gt; Project name: My Project
+&gt; Author name(s): My Name
+&gt; Project release []: 0.0.1
+&gt; Project language [en]: en</code></pre>
+</section><section id="directorio" class="slide level2">
+<h2>Directorio <span class="emoji" data-emoji="dart">🎯</span></h2>
+<pre><code>docs/
+  make.bat
+  Makefile
+  build/
+  source/
+    index.rst
+    conf.py
+    _static/
+    _templates/</code></pre>
+</section><section id="generación" class="slide level2">
+<h2>Generación</h2>
+<div class="sourceCode" id="cb38"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb38-1" title="1"><span class="fu">make</span> html</a></code></pre></div>
+</section><section id="pull-request-4" class="slide level2">
+<h2><em>Pull request</em>! <span class="emoji" data-emoji="tada">🎉</span></h2>
+<ul>
+<li>Requisitos</li>
+<li><code>docs/Makefile</code></li>
+<li><code>docs/source/</code></li>
+<li><strong>Evitamos <code>docs/build</code>!</strong> (<code>.gitignore</code>)</li>
+</ul>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="documentación-en-linea" class="title-slide slide level1"><h1>Documentación en linea <span class="emoji" data-emoji="earth_africa">🌍</span></h1></section><section id="gitlab-pages" class="slide level2">
+<h2><em>Gitlab Pages</em> <span class="emoji" data-emoji="+1">👍</span></h2>
+<p><code>gitlab-ci.yml</code></p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb39-1" title="1"><span class="fu">pages:</span></a>
+<a class="sourceLine" id="cb39-2" title="2">  <span class="fu">stage:</span><span class="at"> deploy</span></a>
+<a class="sourceLine" id="cb39-3" title="3">  <span class="fu">script:</span></a>
+<a class="sourceLine" id="cb39-4" title="4">    <span class="kw">-</span> python3.6 -m venv .venv</a>
+<a class="sourceLine" id="cb39-5" title="5">    <span class="kw">-</span> source .venv/bin/activate</a>
+<a class="sourceLine" id="cb39-6" title="6">    <span class="kw">-</span> pip install -r requirements.txt</a>
+<a class="sourceLine" id="cb39-7" title="7">    <span class="kw">-</span> make -C docs html</a>
+<a class="sourceLine" id="cb39-8" title="8">    <span class="kw">-</span> mv docs/build/html public</a>
+<a class="sourceLine" id="cb39-9" title="9">  <span class="fu">artifacts:</span></a>
+<a class="sourceLine" id="cb39-10" title="10">    <span class="fu">paths:</span></a>
+<a class="sourceLine" id="cb39-11" title="11">      <span class="kw">-</span> public</a>
+<a class="sourceLine" id="cb39-12" title="12">  <span class="fu">only:</span></a>
+<a class="sourceLine" id="cb39-13" title="13">    <span class="kw">-</span> master</a></code></pre></div>
+</section><section id="github-pages" class="slide level2">
+<h2><em>GitHub Pages</em> <span class="emoji" data-emoji="sweat_smile">😅</span></h2>
+<p>???</p>
+<p><a href="https://peque.github.io/PyConES-Spain-2019-tools/">https://peque.github.io/PyConES-Spain-2019-tools/</a></p>
+</section><section id="read-the-docs" class="slide level2">
+<h2><a href="https://readthedocs.io">Read the Docs</a></h2>
+<p><img data-src="static/readthedocs-import.png" /></p>
+</section><section id="readthedocs.yml" class="slide level2">
+<h2><code>.readthedocs.yml</code></h2>
+<div class="sourceCode" id="cb40"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb40-1" title="1"><span class="fu">version:</span><span class="at"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb40-2" title="2"><span class="fu">sphinx:</span></a>
+<a class="sourceLine" id="cb40-3" title="3">  <span class="fu">configuration:</span><span class="at"> docs/source/conf.py</span></a>
+<a class="sourceLine" id="cb40-4" title="4"><span class="fu">python:</span></a>
+<a class="sourceLine" id="cb40-5" title="5">  <span class="fu">version:</span><span class="at"> </span><span class="fl">3.7</span></a>
+<a class="sourceLine" id="cb40-6" title="6">  <span class="fu">install:</span></a>
+<a class="sourceLine" id="cb40-7" title="7">    <span class="kw">-</span> <span class="fu">requirements:</span><span class="at"> requirements.txt</span></a></code></pre></div>
+</section><section id="pull-request-5" class="slide level2">
+<h2><em>Pull request</em>! <span class="emoji" data-emoji="tada">🎉</span></h2>
+<ul>
+<li><code>.readthedocs.yml</code></li>
+</ul>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="ci-en-local" class="title-slide slide level1"><h1>¿<em>CI</em> en local?</h1></section><section id="tox" class="slide level2">
+<h2><a href="https://tox.readthedocs.io">Tox</a></h2>
+<p>Instalación:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb41-1" title="1"><span class="co"># Fuera del entorno</span></a>
+<a class="sourceLine" id="cb41-2" title="2"><span class="ex">pip3</span> install --user tox</a></code></pre></div>
+<p>Uso:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb42-1" title="1"><span class="ex">tox</span></a></code></pre></div>
+</section><section id="tox.ini" class="slide level2">
+<h2><code>tox.ini</code></h2>
+<div class="sourceCode" id="cb43"><pre class="sourceCode ini"><code class="sourceCode ini"><a class="sourceLine" id="cb43-1" title="1"><span class="kw">[tox]</span></a>
+<a class="sourceLine" id="cb43-2" title="2"><span class="dt">envlist </span><span class="ot">=</span><span class="st"> py37,py36,lint,docs</span></a>
+<a class="sourceLine" id="cb43-3" title="3"><span class="kw">[testenv]</span></a>
+<a class="sourceLine" id="cb43-4" title="4"><span class="dt">deps </span><span class="ot">=</span><span class="st"> -rrequirements.txt</span></a>
+<a class="sourceLine" id="cb43-5" title="5"><span class="dt">commands </span><span class="ot">=</span><span class="st"> pytest --basetemp={envtmpdir} --cache-clear -v</span></a>
+<a class="sourceLine" id="cb43-6" title="6"><span class="kw">[testenv:lint]</span></a>
+<a class="sourceLine" id="cb43-7" title="7"><span class="dt">commands </span><span class="ot">=</span></a>
+<a class="sourceLine" id="cb43-8" title="8"><span class="dt">    black . --diff --check</span></a>
+<a class="sourceLine" id="cb43-9" title="9"><span class="dt">    flake8</span></a>
+<a class="sourceLine" id="cb43-10" title="10"><span class="kw">[testenv:docs]</span></a>
+<a class="sourceLine" id="cb43-11" title="11"><span class="dt">whitelist_externals </span><span class="ot">=</span><span class="st"> make</span></a>
+<a class="sourceLine" id="cb43-12" title="12"><span class="dt">commands </span><span class="ot">=</span></a>
+<a class="sourceLine" id="cb43-13" title="13"><span class="dt">    make -C docs html SPHINXOPTS</span><span class="ot">=</span><span class="st">&quot;-W -E&quot;</span></a>
+<a class="sourceLine" id="cb43-14" title="14"><span class="dt">    make -C docs linkcheck</span></a></code></pre></div>
+</section><section id="travis.yml-2" class="slide level2">
+<h2><code>.travis.yml</code></h2>
+<div class="sourceCode" id="cb44"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb44-1" title="1"><span class="fu">dist:</span><span class="at"> xenial</span></a>
+<a class="sourceLine" id="cb44-2" title="2"><span class="fu">language:</span><span class="at"> python</span></a>
+<a class="sourceLine" id="cb44-3" title="3"><span class="fu">python:</span></a>
+<a class="sourceLine" id="cb44-4" title="4">  <span class="kw">-</span> <span class="fl">3.7</span></a>
+<a class="sourceLine" id="cb44-5" title="5">  <span class="kw">-</span> <span class="fl">3.6</span></a>
+<a class="sourceLine" id="cb44-6" title="6"><span class="fu">matrix:</span></a>
+<a class="sourceLine" id="cb44-7" title="7">  <span class="fu">include:</span></a>
+<a class="sourceLine" id="cb44-8" title="8">    <span class="kw">-</span> <span class="fu">python:</span><span class="at"> </span><span class="fl">3.6</span></a>
+<a class="sourceLine" id="cb44-9" title="9">      <span class="fu">env:</span><span class="at"> TOXENV=docs</span></a>
+<a class="sourceLine" id="cb44-10" title="10">    <span class="kw">-</span> <span class="fu">python:</span><span class="at"> </span><span class="fl">3.6</span></a>
+<a class="sourceLine" id="cb44-11" title="11">      <span class="fu">env:</span><span class="at"> TOXENV=lint</span></a>
+<a class="sourceLine" id="cb44-12" title="12"><span class="fu">install:</span></a>
+<a class="sourceLine" id="cb44-13" title="13">  <span class="kw">-</span> pip install tox tox-travis</a>
+<a class="sourceLine" id="cb44-14" title="14"><span class="fu">script:</span></a>
+<a class="sourceLine" id="cb44-15" title="15">  <span class="kw">-</span> tox</a></code></pre></div>
+</section><section id="pull-request-6" class="slide level2">
+<h2><em>Pull request</em>! <span class="emoji" data-emoji="tada">🎉</span></h2>
+<ul>
+<li><code>tox.ini</code></li>
+<li><code>.travis.yml</code></li>
+</ul>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="distribución-de-paquetes" class="title-slide slide level1"><h1>Distribución de paquetes <span class="emoji" data-emoji="package">📦</span></h1></section><section id="pypi" class="slide level2">
+<h2><a href="https://pypi.org/">PyPI</a></h2>
+</section><section id="directory-structure" class="slide level2">
+<h2>Directory structure</h2>
+<pre><code>workshop/
+  docs/
+    source/
+      ...
+    Makefile
+  mypackage/
+    __init__.py
+    mymodule.py
+    tests/
+      test_mymodule.py
+  setup.py
+  LICENSE
+  README.md</code></pre>
+</section><section id="setup.py" class="slide level2">
+<h2><code>setup.py</code></h2>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb46-1" title="1"><span class="im">import</span> setuptools</a>
+<a class="sourceLine" id="cb46-2" title="2"></a>
+<a class="sourceLine" id="cb46-3" title="3"><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;README.md&quot;</span>, <span class="st">&quot;r&quot;</span>) <span class="im">as</span> fh:</a>
+<a class="sourceLine" id="cb46-4" title="4">    long_description <span class="op">=</span> fh.read()</a>
+<a class="sourceLine" id="cb46-5" title="5"></a>
+<a class="sourceLine" id="cb46-6" title="6">setuptools.setup(</a>
+<a class="sourceLine" id="cb46-7" title="7">    name<span class="op">=</span><span class="st">&quot;mypackage-username&quot;</span>,</a>
+<a class="sourceLine" id="cb46-8" title="8">    version<span class="op">=</span><span class="st">&quot;0.0.1&quot;</span>,</a>
+<a class="sourceLine" id="cb46-9" title="9">    author<span class="op">=</span><span class="st">&quot;My Full Name&quot;</span>,</a>
+<a class="sourceLine" id="cb46-10" title="10">    author_email<span class="op">=</span><span class="st">&quot;me@mydomain.com&quot;</span>,</a>
+<a class="sourceLine" id="cb46-11" title="11">    description<span class="op">=</span><span class="st">&quot;A small example package&quot;</span>,</a>
+<a class="sourceLine" id="cb46-12" title="12">    long_description<span class="op">=</span>long_description,</a>
+<a class="sourceLine" id="cb46-13" title="13">    long_description_content_type<span class="op">=</span><span class="st">&quot;text/markdown&quot;</span>,</a>
+<a class="sourceLine" id="cb46-14" title="14">    url<span class="op">=</span><span class="st">&quot;https://github.com/myuser/workshop&quot;</span>,</a>
+<a class="sourceLine" id="cb46-15" title="15">    packages<span class="op">=</span>setuptools.find_packages(),</a>
+<a class="sourceLine" id="cb46-16" title="16">    classifiers<span class="op">=</span>[</a>
+<a class="sourceLine" id="cb46-17" title="17">        <span class="st">&quot;Programming Language :: Python :: 3&quot;</span>,</a>
+<a class="sourceLine" id="cb46-18" title="18">        <span class="st">&quot;License :: OSI Approved :: MIT License&quot;</span>,</a>
+<a class="sourceLine" id="cb46-19" title="19">        <span class="st">&quot;Operating System :: OS Independent&quot;</span>,</a>
+<a class="sourceLine" id="cb46-20" title="20">    ],</a>
+<a class="sourceLine" id="cb46-21" title="21">    python_requires<span class="op">=</span><span class="st">&#39;&gt;=3.6&#39;</span>,</a>
+<a class="sourceLine" id="cb46-22" title="22">)</a></code></pre></div>
+</section><section id="twine" class="slide level2">
+<h2><a href="https://github.com/pypa/twine">Twine</a></h2>
+<p>Construir:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb47-1" title="1"><span class="ex">python</span> setup.py sdist bdist_wheel</a></code></pre></div>
+<p>Publicar:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb48-1" title="1"><span class="ex">twine</span> upload --repository-url https://test.pypi.org/legacy/ dist/*</a>
+<a class="sourceLine" id="cb48-2" title="2"><span class="ex">twine</span> upload dist/*</a></code></pre></div>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="más" class="title-slide slide level1"><h1>Más <span class="emoji" data-emoji="chart_with_upwards_trend">📈</span></h1></section><section id="pytest-1" class="slide level2">
+<h2><code>pytest</code></h2>
+<ul>
+<li><code>fixture</code> (scopes)</li>
+<li><code>mark.parametrize</code></li>
+<li><code>mark.skipif</code></li>
+<li><code>conftest.py</code></li>
+</ul>
+</section><section id="otros-gestores-de-entornos-virtuales" class="slide level2">
+<h2>Otros gestores de entornos virtuales</h2>
+<ul>
+<li>Conda</li>
+<li>Pipenv</li>
+<li>Poetry</li>
+</ul>
+</section><section id="ayuda-al-desarrollo" class="slide level2">
+<h2>Ayuda al desarrollo</h2>
+<ul>
+<li>Cobertura - <a href="https://codecov.io">codecov.io</a></li>
+<li>Limpieza - <a href="https://codeclimate.com">codeclimate.com</a></li>
+<li>Seguridad - <a href="https://lgtm.com/">lgtm.com</a></li>
+</ul>
+</section></section>
+<section data-background="markdownrevealstyle/background.svg"><section id="eso-es-todo" class="title-slide slide level1"><h1>¡Eso es todo! <span class="emoji" data-emoji="tada">🎉</span> <span class="emoji" data-emoji="beers">🍻</span> <span class="emoji" data-emoji="smile">😄</span></h1></section><section id="gracias-️" class="slide level2">
+<h2>¡Gracias! <span class="emoji" data-emoji="tada">🎉</span> <span class="emoji" data-emoji="heart">❤️</span></h2>
+</section></section>
+    </div>
+  </div>
+
+  <script src="revealjs/lib/js/head.min.js"></script>
+  <script src="revealjs/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+        // Display a presentation progress bar
+        progress: true,
+        // Display the page number of the current slide
+        slideNumber: false,
+        // Push each slide change to the browser history
+        history: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
+        // Vertical centering of slides
+        center: true,
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'revealjs/plugin/zoom-js/zoom.js', async: true },
+          { src: 'revealjs/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
